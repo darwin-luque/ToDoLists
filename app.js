@@ -134,7 +134,10 @@ app.get('/about', (req, res) => {
     res.render('about', {})
 })
 
-const port = 5050;
+const port = process.env.PORT;
+if (port === null || port === ""){
+    port = 5050;
+}
 app.listen(port, ()=> {
     console.log(`Port started in port ${port}.`);
 })
